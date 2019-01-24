@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+
+    successdisco:
+        image: 536795411033.dkr.ecr.eu-west-1.amazonaws.com/successdisco:latest
+        ports:
+            - 3000
+        environment:
+            - VIRTUAL_HOST=successdisco
+        network_mode: bridge
