@@ -1,11 +1,15 @@
 {
   "name": "successdisco",
   "version": "0.0.0",
-  "description": "Success Disco - celebrate when we do amazing things",
+  "description": "AlarmBox - keep us of informed of things",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "pretest": "clear",
+    "test": "mocha --ui tdd -c  --recursive './test/unit/src/'",
+    "build": "mkdir -p public;cp src/client/index.html public;webpack",
+    "prestart": "npm run build",
+    "start": "node src/server/index.js",
+    "clean": "rm -rf public"
   },
   "keywords": [
     "alarmbox"
@@ -16,6 +20,7 @@
     "@octokit/rest": "^15.17.0",
     "browserify": "^16.2.3",
     "express": "^4.16.4",
+    "nanoid": "^2.0.1",
     "socket.io": "^2.1.1"
   },
   "devDependencies": {

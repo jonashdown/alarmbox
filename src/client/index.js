@@ -1,16 +1,17 @@
-function reset() {
-  document.getElementById('alarmList').innerHTML = '';
-  document.getElementById('noAlarms').classList.remove('hidden');
-}
 
 
-function init() {
-  reset();
-  var alarms = getCurrentAlarms();
-  if (alarms) {
-    document.getElementById('noAlarms').classList.add('hidden');
-    alarms.forEach((a) => {
-      document.getElementById('alarmList').appendChild(renderAlarm(a));
-    });
-  }
+import reset from './reset';
+
+export const init = (alarmsElement, noAlarmsElement) =>{
+  reset(alarmsElement, noAlarmsElement);
+  // var alarms = getCurrentAlarms();
+  // if (alarms) {
+  //   noAlarmsElement.classList.add('hidden');
+  //   alarms.forEach((a) => {
+  //     alarmsElement.appendChild(renderAlarm(a));
+  //   });
+  // }
 }
+
+export default init
+export { setUpSocketEvents } from './setup-socket-events';
